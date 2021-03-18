@@ -1,4 +1,4 @@
-package com.sparta.kurtis.guessthatquote.services;
+package com.sparta.kurtis.guessthatquote.util;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
