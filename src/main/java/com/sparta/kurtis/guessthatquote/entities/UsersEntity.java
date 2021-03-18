@@ -1,5 +1,7 @@
 package com.sparta.kurtis.guessthatquote.entities;
 
+import com.sparta.kurtis.guessthatquote.util.PasswordCreator;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -41,7 +43,7 @@ public class UsersEntity {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = PasswordCreator.encode(password);
     }
 
     @Basic
