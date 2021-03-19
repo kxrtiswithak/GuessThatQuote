@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/general.html :: head">
+    <meta charset="UTF-8">
+    <meta name="description" content="welcome page">
+    <meta name="author" content="Kurtis Hanson">
+
+    <title>welcome page</title>
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" th:href="@{/css/welcome.css}" />
+</head>
+<body class="d-flex h-100 text-center text-white bg-dark">
+
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header th:replace="fragments/general.html :: header"></header>
+
+    <main class="px-3">
+        <h1>Guess That Quote!</h1>
+        <br>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <p class="lead" th:inline="text" ><em>"[[${quote.quote}]]"</em></p>
+        </div>
+        <br>
+        <form method="#">
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <a class="btn btn-primary btn-lg" th:text="${authors[0].authorName}" th:href="@{'/author/' + ${authorIds[0]}}">Button 1</a>
+                <a class="btn btn-primary btn-lg" th:text="${authors[1].authorName}" th:href="@{'/author/' + ${authorIds[1]}}">Button 2</a>
+                <a class="btn btn-primary btn-lg" th:text="${authors[2].authorName}" th:href="@{'/author/' + ${authorIds[2]}}">Button 3</a>
+                <a class="btn btn-primary btn-lg" th:text="${authors[3].authorName}" th:href="@{'/author/' + ${authorIds[3]}}">Button 4</a>
+                <br>
+            </div>
+        </form>
+        <br>
+    </main>
+
+    <footer th:replace="fragments/general.html :: footer"></footer>
+</div>
+
+</body>
+</html>
