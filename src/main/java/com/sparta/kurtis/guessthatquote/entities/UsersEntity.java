@@ -17,7 +17,7 @@ public class UsersEntity {
     private byte enabled;
 
     @Id
-    @Column(name = "user_id")
+    @Column(name = "user_id", insertable = false, updatable = false)
     public int getUserId() {
         return userId;
     }
@@ -27,7 +27,7 @@ public class UsersEntity {
     }
 
     @Basic
-    @Column(name = "username")
+    @Column(name = "username", unique = true)
     public String getUsername() {
         return username;
     }
