@@ -30,4 +30,8 @@ public class UsersService {
     public void deleteUserById(int id) {
         usersRepository.deleteById(id);
     }
+
+    public Optional<UsersEntity> findByUsername(String username) {
+        return usersRepository.findByUsername(username);
+    }
 }

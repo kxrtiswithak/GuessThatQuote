@@ -31,6 +31,10 @@ public class QuotesService {
         quotesRepository.deleteById(id);
     }
 
+    public long getCount() {
+        return quotesRepository.count();
+    }
+
     // public boolean doesQuoteExist(String quote) {
     //     quotesRepository.findByQuote(String quote);
     // }
