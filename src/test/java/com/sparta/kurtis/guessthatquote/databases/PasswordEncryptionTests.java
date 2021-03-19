@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PasswordEncryptionTests {
 
     @Autowired
-    private UsersRepository repo;
+    private UsersRepository usersRepo;
     private static UsersEntity createdUser;
     private static final String username = "user";
     private static final String rawPassword = "account";
@@ -35,8 +35,8 @@ public class PasswordEncryptionTests {
 
         firstEncodedPassword = user.getPassword();
 
-        repo.save(user);
-        createdUser = repo.findByUsername(username).get();
+        usersRepo.save(user);
+        createdUser = usersRepo.findByUsername(username).get();
         encodedPassword = createdUser.getPassword();;
 
         assertNotEquals(firstEncodedPassword, encodedPassword);
@@ -46,13 +46,13 @@ public class PasswordEncryptionTests {
     @Order(Integer.MAX_VALUE)
     @DisplayName("was test user removed")
     void removeTestUser() {
-        repo.deleteById(createdUser.getUserId());
+        usersRepo.deleteById(createdUser.getUserId());
     }
 
     @Test
     @DisplayName("was repo context loaded")
     void contextLoads() {
-        assertNotNull(repo);
+        assertNotNull(usersRepo);
     }
 
     @Test
